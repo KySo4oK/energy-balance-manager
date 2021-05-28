@@ -1,4 +1,4 @@
-package kpi.compilers.energybalancemanager.token.matcher.strategy.priority;
+package kpi.compilers.energybalancemanager.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,7 +6,9 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum Priority {
-    DOUBLE(10);
+    DOUBLE(10),
+    ADD_KCAL(20),
+    STRING(0);
     private final int priority;
 
 }

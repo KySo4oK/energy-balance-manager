@@ -1,4 +1,4 @@
-package kpi.compilers.energybalancemanager.token.matcher;
+package kpi.compilers.energybalancemanager.common.exception;
 
 public class LexerException extends RuntimeException {
     public LexerException(String message) {

@@ -1,14 +1,13 @@
 package kpi.compilers.energybalancemanager.token.matcher.strategy.impl;
 
-import jdk.jfr.Category;
+import kpi.compilers.energybalancemanager.common.Priority;
 import kpi.compilers.energybalancemanager.token.entity.Token;
 import kpi.compilers.energybalancemanager.token.entity.impl.DoubleToken;
 import kpi.compilers.energybalancemanager.token.matcher.strategy.TokenMatchingStrategy;
-import kpi.compilers.energybalancemanager.token.matcher.strategy.priority.Priority;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DoubleTokenMatchingStrategy<T> implements TokenMatchingStrategy<Double> {
+public class DoubleTokenMatchingStrategy implements TokenMatchingStrategy<Double> {
     @Override
     public boolean isApplicable(String value) {
         try {

@@ -1,24 +1,26 @@
 package kpi.compilers.energybalancemanager.token.matcher.strategy.impl;
 
 import kpi.compilers.energybalancemanager.common.Priority;
-import kpi.compilers.energybalancemanager.token.entity.impl.StringToken;
+import kpi.compilers.energybalancemanager.token.entity.KeyWord;
+import kpi.compilers.energybalancemanager.token.entity.impl.AddKcalToken;
 import kpi.compilers.energybalancemanager.token.matcher.strategy.TokenMatchingStrategy;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StringMatchingStrategy implements TokenMatchingStrategy<String> {
+public class AddKcalTokenMatchingStrategy implements TokenMatchingStrategy<KeyWord> {
+
     @Override
     public boolean isApplicable(String value) {
-        return true;
+        return KeyWord.ADD_KCAL.getName().equals(value);
     }
 
     @Override
     public int getPriority() {
-        return Priority.STRING.getPriority();
+        return Priority.ADD_KCAL.getPriority();
     }
 
     @Override
-    public StringToken match(String value) {
-        return new StringToken(value);
+    public AddKcalToken match(String value) {
+        return new AddKcalToken();
     }
 }

@@ -1,5 +1,6 @@
 package kpi.compilers.energybalancemanager.token.matcher;
 
+import kpi.compilers.energybalancemanager.common.exception.LexerException;
 import kpi.compilers.energybalancemanager.token.entity.Token;
 import kpi.compilers.energybalancemanager.token.matcher.strategy.TokenMatchingStrategy;
 import org.springframework.stereotype.Component;

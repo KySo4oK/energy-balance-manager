@@ -2,11 +2,9 @@ package kpi.compilers.energybalancemanager.token.parser;
 
 import kpi.compilers.energybalancemanager.token.entity.Token;
 import kpi.compilers.energybalancemanager.token.entity.impl.ExitToken;
-import kpi.compilers.energybalancemanager.token.entity.impl.ExitValue;
-import kpi.compilers.energybalancemanager.token.matcher.LexerException;
+import kpi.compilers.energybalancemanager.common.exception.LexerException;
 import kpi.compilers.energybalancemanager.token.matcher.TokenMatcher;
 import kpi.compilers.energybalancemanager.token.queue.TokenQueue;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -51,7 +49,7 @@ public class TokenParser {
         return token instanceof ExitToken;
     }
 
-    public List getTokens() {
+    public List<Token> getTokens() {
         return queue.getAll();
     }
 }
