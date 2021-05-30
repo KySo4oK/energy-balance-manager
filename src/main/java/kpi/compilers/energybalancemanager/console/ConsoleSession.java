@@ -2,6 +2,7 @@ package kpi.compilers.energybalancemanager.console;
 
 import kpi.compilers.energybalancemanager.expression.AbstractExpression;
 import kpi.compilers.energybalancemanager.expression.ExpressionParser;
+import kpi.compilers.energybalancemanager.semantics.SymantecAnalyser;
 import kpi.compilers.energybalancemanager.token.entity.Token;
 import kpi.compilers.energybalancemanager.token.parser.TokenParser;
 import org.springframework.stereotype.Component;
@@ -17,10 +18,12 @@ public class ConsoleSession {
     private final Scanner scanner;
     private final TokenParser tokenParser;
     private final ExpressionParser expressionParser;
+    private final SymantecAnalyser symantecAnalyser;
 
-    public ConsoleSession(User user, CommandPrinter printer, TokenParser tokenParser, ExpressionParser expressionParser) {
+    public ConsoleSession(User user, CommandPrinter printer, TokenParser tokenParser, ExpressionParser expressionParser, SymantecAnalyser symantecAnalyser) {
         this.user = user;
         this.expressionParser = expressionParser;
+        this.symantecAnalyser = symantecAnalyser;
         this.scanner = new Scanner(System.in);
         this.printer = printer;
         this.tokenParser = tokenParser;
@@ -33,7 +36,12 @@ public class ConsoleSession {
             if (!tokenParser.parse(line)) {
                 List<Token> tokens = tokenParser.getTokens();
                 List<AbstractExpression> expressions = expressionParser.parse(tokens);
-                expressions.forEach(AbstractExpression::process);
+                if (symantecAnalyser.isValidSemantically(expressions)) {
+                    printer.print(Command.SEMANTICALLY_CORRECT.getDescription() + true);
+                    expressions.forEach(AbstractExpression::process);
+                } else {
+                    printer.print(Command.SEMANTICALLY_CORRECT.getDescription() + false);
+                }
                 break;
             }
         }

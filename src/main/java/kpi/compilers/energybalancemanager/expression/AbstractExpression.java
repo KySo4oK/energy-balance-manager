@@ -12,4 +12,6 @@ public interface AbstractExpression {
     boolean isApplicable(List<Token> tokens);
 
     List<Token> getTokens();
+
+    boolean isValidSemantically();
 }

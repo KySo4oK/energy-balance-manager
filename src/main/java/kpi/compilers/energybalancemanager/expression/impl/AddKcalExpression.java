@@ -32,4 +32,9 @@ public class AddKcalExpression implements AbstractExpression {
     public List<Token> getTokens() {
         return tokens;
     }
+
+    @Override
+    public boolean isValidSemantically() {
+        return amount > 0.0;
+    }
 }
