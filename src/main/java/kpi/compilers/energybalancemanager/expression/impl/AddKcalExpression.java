@@ -14,8 +14,8 @@ public class AddKcalExpression implements AbstractExpression {
     }
 
     @Override
-    public void process() {
-        System.out.println("|will be removed| adding " + amount + " kcal");
+    public String translate() {
+        return "user.addCalories(" + amount + ");";
     }
 
     @Override

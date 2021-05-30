@@ -5,7 +5,7 @@ import kpi.compilers.energybalancemanager.token.entity.Token;
 import java.util.List;
 
 public interface AbstractExpression {
-    void process();
+    String translate();
 
     void setTokens(List<Token> tokens);
 
