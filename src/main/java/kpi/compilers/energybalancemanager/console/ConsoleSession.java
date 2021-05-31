@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 @Component
 public class ConsoleSession {
@@ -42,10 +41,7 @@ public class ConsoleSession {
                 List<AbstractExpression> expressions = expressionParser.parse(tokens);
                 if (symantecAnalyser.isValidSemantically(expressions)) {
                     printer.print(Command.SEMANTICALLY_CORRECT.getDescription() + true);
-                    translator.translate(
-                            expressions.stream()
-                                    .map(AbstractExpression::translate)
-                                    .collect(Collectors.joining()));
+                    translator.translate(expressions);
                 } else {
                     printer.print(Command.SEMANTICALLY_CORRECT.getDescription() + false);
                 }

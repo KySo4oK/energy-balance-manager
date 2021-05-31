@@ -2,11 +2,13 @@ package kpi.compilers.energybalancemanager.expression.impl;
 
 import kpi.compilers.energybalancemanager.expression.AbstractExpression;
 import kpi.compilers.energybalancemanager.token.entity.Token;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class AddKcalExpression implements AbstractExpression {
-    private final double amount;
+    private double amount;
     private List<Token> tokens;
 
     public AddKcalExpression(double amount) {
@@ -19,18 +21,8 @@ public class AddKcalExpression implements AbstractExpression {
     }
 
     @Override
-    public void setTokens(List<Token> tokens) {
-        this.tokens = tokens;
-    }
-
-    @Override
     public boolean isApplicable(List<Token> tokens) {
         return false;
-    }
-
-    @Override
-    public List<Token> getTokens() {
-        return tokens;
     }
 
     @Override
