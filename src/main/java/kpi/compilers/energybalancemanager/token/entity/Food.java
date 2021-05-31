@@ -5,10 +5,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public enum KeyWord {
-    ADD_KCAL("add-kcal"),
-    ADD_FOOD("add-food"),
-    REMOVE_KCAL("remove-kcal");
-
+public enum Food {
+    PIZZA(400.0, "pizza"),
+    ICE_CREAM(500.0, "ice-cream"),
+    APPLE(300.0, "apple");
+    private final double kcalPer100g;
     private final String name;
 }

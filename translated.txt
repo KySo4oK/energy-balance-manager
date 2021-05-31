@@ -1,2 +1,3 @@
-user.addCalories(1232.0);
-user.removeCalories(12.0);
+user.addFoodIntake(pizza, 1123.0);
+user.addCalories(1.23123246E8);
+user.removeCalories(123123.0);
