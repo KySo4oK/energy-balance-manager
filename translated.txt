@@ -1,2 +1,2 @@
-user.addCalories(123.0);
-user.addCalories(23.0);
+user.addCalories(1232.0);
+user.removeCalories(12.0);

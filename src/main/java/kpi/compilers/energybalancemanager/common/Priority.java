@@ -8,7 +8,7 @@ import lombok.Getter;
 public enum Priority {
     DOUBLE(10),
     ADD_KCAL(20),
+    REMOVE_KCAL(20),
     STRING(0);
     private final int priority;
-
 }
